@@ -23,7 +23,7 @@ pipeline {
                 '''
             }
         }
-        stage ('Build') {
+        stage ('Build Images') {
             steps {
                 script {
                     dockerImage = docker.build "test_build2"
