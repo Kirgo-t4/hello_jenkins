@@ -23,6 +23,15 @@ pipeline {
                 '''
             }
         }
+        stage ('Build') {
+            dir('.') {
+                steps {
+                    script {
+                        dockerImage = docker.build "test_build2"
+                    }
+                }
+            }
+        }
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
