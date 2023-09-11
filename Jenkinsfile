@@ -16,10 +16,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                ls -l
-                pwd
                 sh '''
                 echo "doing test stuff.."
+                ls -l
+                pwd
                 '''
             }
         }
