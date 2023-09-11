@@ -26,8 +26,10 @@ pipeline {
         stage ('Build Images') {
             steps {
                 script {
-                    dir('.') {
-                        dockerImage = docker.build "test_build2"
+                    if (true) {
+                        dir('.') {
+                            dockerImage = docker.build "test_build2"
+                        }
                     }
                 }
                 echo "${params.NAME} done..."
