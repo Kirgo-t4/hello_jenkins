@@ -24,11 +24,9 @@ pipeline {
             }
         }
         stage ('Build') {
-            dir('.') {
-                steps {
-                    script {
-                        dockerImage = docker.build "test_build2"
-                    }
+            steps {
+                script {
+                    dockerImage = docker.build "test_build2"
                 }
             }
         }
