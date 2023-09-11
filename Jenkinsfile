@@ -31,7 +31,7 @@ pipeline {
                     }
                 }
                 sh '''
-                echo "done..."
+                echo "${params.NAME} done..."
                 '''
             }
         }
