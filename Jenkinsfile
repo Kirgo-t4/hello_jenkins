@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.withRegistry('', 'nexus3_creds') {
+                    docker.withRegistry('http://192.168.122.80:8083', 'nexus3_creds') {
                         dockerImage.push()
                     }
                 }
