@@ -30,6 +30,9 @@ pipeline {
                         dockerImage = docker.build "test_build2"
                     }
                 }
+                sh '''
+                echo "done..."
+                '''
             }
         }
         stage('Deliver') {
