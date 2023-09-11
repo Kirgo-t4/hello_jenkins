@@ -3,7 +3,7 @@ pipeline {
         node {
                 label 'docker-build-agent'
             }
-      }
+        }
     stages {
         stage('Build') {
             steps {
@@ -28,19 +28,20 @@ pipeline {
                 script {
                     if (true) {
                         dir('.') {
-                            dockerImage = docker.build "test_build2"
+                            def dockerImage = docker.build "test_build2"
                         }
                     }
                 }
                 echo "${params.NAME} done..."
             }
         }
-        stage('Deliver') {
+        stage('Deploy') {
             steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
+                script {
+                    docker.withRegistry('', 'nexus3_creds') {
+                        dockerImage.push()
+                    }
+                }
             }
         }
     }
