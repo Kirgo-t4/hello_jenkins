@@ -1,3 +1,7 @@
+def sayHello() {
+    echo "Hello!!!"
+}
+
 pipeline {
     agent { 
         node {
@@ -33,6 +37,7 @@ pipeline {
                     }
                 }
                 echo "${params.NAME} done..."
+                sayHello()
             }
         }
         stage('Deploy') {
@@ -42,6 +47,7 @@ pipeline {
                         dockerImage.push()
                     }
                 }
+                sayHello()
             }
         }
     }
