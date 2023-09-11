@@ -28,7 +28,7 @@ pipeline {
                 script {
                     if (true) {
                         dir('.') {
-                            def dockerImage = docker.build "test_build2"
+                            def dockerImage = docker.build "192.168.122.80:8083/test_build2"
                         }
                     }
                 }
